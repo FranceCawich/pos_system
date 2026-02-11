@@ -1,6 +1,6 @@
 # Logs
 *.log
-logs/
+logs/*
 
 # Node.js / React
 node_modules/

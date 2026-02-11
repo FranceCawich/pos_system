@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import '../styles/LoginPage.css'
 
 export default function LoginPage() {
@@ -6,6 +7,7 @@ export default function LoginPage() {
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
+  const navigate = useNavigate()
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -27,12 +29,16 @@ export default function LoginPage() {
       }
 
       const data = await response.json()
-      // Store token (you might want to use localStorage or context)
+      // Store token and user info
       localStorage.setItem('authToken', data.token)
+      localStorage.setItem('user', JSON.stringify({
+        username: data.username,
+        role: data.role
+      }))
       
-      // Redirect or update app state
+      // Redirect to admin panel
       console.log('Login successful:', data)
-      window.location.href = '/dashboard'
+      navigate('/admin')
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Login failed')
     } finally {
