@@ -26,6 +26,10 @@ export default function AdminPanel() {
     navigate('/login')
   }
 
+  const handleNavigateToUserManagement = () => {
+    navigate('/user-management')
+  }
+
   return (
     <div className="min-h-screen bg-gray-100">
       {/* Navigation Bar */}
@@ -67,18 +71,26 @@ export default function AdminPanel() {
               </p>
 
               {/* Quick Stats Placeholder */}
-              <div className="mt-12 grid grid-cols-3 gap-6 w-full max-w-2xl">
+              <div className="mt-12 grid grid-cols-4 gap-6 w-full max-w-2xl">
                 <div className="bg-white p-6 rounded-lg shadow">
                   <h3 className="text-gray-500 text-sm font-medium mb-2">Total Users</h3>
                   <p className="text-3xl font-bold text-indigo-600">0</p>
                 </div>
                 <div className="bg-white p-6 rounded-lg shadow">
-                  <h3 className="text-gray-500 text-sm font-medium mb-2">Active Sessions</h3>
+                  <h3 className="text-gray-500 text-sm font-medium mb-2">Manage Products</h3>
                   <p className="text-3xl font-bold text-green-600">0</p>
                 </div>
                 <div className="bg-white p-6 rounded-lg shadow">
                   <h3 className="text-gray-500 text-sm font-medium mb-2">System Status</h3>
                   <p className="text-3xl font-bold text-blue-600">OK</p>
+                </div>
+                 <div className="bg-white p-6 rounded-lg shadow cursor-pointer hover:shadow-lg transition-shadow" onClick={handleNavigateToUserManagement}>
+                  <h3 className="text-gray-500 text-sm font-medium mb-2">Managed Users</h3>
+                  <p className="text-3xl font-bold text-green-600">0</p>
+                </div>
+                 <div className="bg-white p-6 rounded-lg shadow">
+                  <h3 className="text-gray-500 text-sm font-medium mb-2">Reports</h3>
+                  <p className="text-3xl font-bold text-green-600">0</p>
                 </div>
               </div>
             </div>

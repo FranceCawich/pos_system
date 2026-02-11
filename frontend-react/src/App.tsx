@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import LoginPage from './pages/LoginPage'
 import AdminPanel from './pages/AdminPanel'
+import UserManagement from './pages/UserManagment'
 import './App.css'
 
 function App() {
@@ -17,6 +18,10 @@ function App() {
         <Route
           path="/"
           element={isAuthenticated ? <Navigate to="/admin" /> : <Navigate to="/login" />}
+        />
+        <Route
+          path="/user-management"
+          element={isAuthenticated ? <UserManagement /> : <Navigate to="/login" />}
         />
       </Routes>
     </Router>
